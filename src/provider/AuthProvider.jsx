@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -15,6 +16,11 @@ export default function AuthProvider({ children }) {
   const registerUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password)
   };
+
+    //   login existing user
+    const loginUser = (email, password) => {
+      return signInWithEmailAndPassword(auth, email, password);
+    };
 
   //   logout user
   const logoutUser = () => {
@@ -39,6 +45,7 @@ export default function AuthProvider({ children }) {
     user,
     setUser,
     registerUser,
+    loginUser,
     logoutUser,
     updateUserProfile,
   };
