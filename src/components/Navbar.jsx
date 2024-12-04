@@ -77,13 +77,13 @@ export default function Navbar() {
           ) : (
             <>
               <Link
-                to="/login"
+                to="/auth/login"
                 className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-sm"
               >
                 Login
               </Link>
               <Link
-                to="/register"
+                to="/auth/register"
                 className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-sm"
               >
                 Register
