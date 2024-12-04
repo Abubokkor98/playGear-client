@@ -3,7 +3,19 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 export default function Navbar() {
-    const {user} = useContext(AuthContext);
+  const { user, logoutUser, setUser } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        setUser(null);
+        alert("User Logged out");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <nav className="bg-gray-800 text-white shadow-md">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -93,7 +105,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-
-
   );
 }
