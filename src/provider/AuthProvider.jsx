@@ -13,19 +13,24 @@ import { auth } from "../firebase/firebase.config";
 export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
 
   // register user
   const registerUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   //   login existing user
   const loginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //   logout user
   const logoutUser = () => {
+    setLoading(true);
     return signOut(auth);
   };
   // update user functionality for using in register page
@@ -43,6 +48,7 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (curretUser) => {
       setUser(curretUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -57,6 +63,7 @@ export default function AuthProvider({ children }) {
     logoutUser,
     updateUserProfile,
     googleSignIn,
+    loading,
   };
 
   return (
