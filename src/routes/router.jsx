@@ -9,6 +9,7 @@ import AddEquipment from "../pages/AddEquipment";
 import PrivateRoute from "./PrivateRoute";
 import AllEquipment from "../pages/AllEquipment";
 import MyEquipment from "../pages/MyEquipment";
+import EquipmentDetails from "../pages/EquipmentDetails";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,20 @@ export const router = createBrowserRouter([
         path: "/all-equipment",
         element: <AllEquipment></AllEquipment>,
         loader: ()=> fetch('http://localhost:5000/equipments')
+      },
+      {
+        path: "/details/:_id",
+        element: (
+          <PrivateRoute>
+            <EquipmentDetails></EquipmentDetails>
+          </PrivateRoute>
+        ),
+        loader: async ({params})=>{
+          const res = await fetch('http://localhost:5000/equipments');
+          const data = await res.json();
+          const singleData = data.find(d=>d._id == params._id);
+          return singleData;
+        }
       },
       {
         path: "/add-equipment",
