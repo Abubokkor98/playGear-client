@@ -12,6 +12,7 @@ import MyEquipment from "../pages/MyEquipment";
 import EquipmentDetails from "../pages/EquipmentDetails";
 
 export const router = createBrowserRouter([
+  
   {
     path: "/",
     element: <MainLayout></MainLayout>,
@@ -53,6 +54,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyEquipment></MyEquipment>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update-equipment",
+        element: (
+          <PrivateRoute>
+            <h2>update-equipment</h2>
           </PrivateRoute>
         ),
       },
