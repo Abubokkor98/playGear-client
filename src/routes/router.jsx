@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import AllEquipment from "../pages/AllEquipment";
 import MyEquipment from "../pages/MyEquipment";
 import EquipmentDetails from "../pages/EquipmentDetails";
+import UpdateEquipment from "../pages/UpdateEquipment";
 
 export const router = createBrowserRouter([
   
@@ -58,12 +59,13 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/update-equipment",
+        path: "/update-equipment/:id",
         element: (
           <PrivateRoute>
-            <h2>update-equipment</h2>
+            <UpdateEquipment></UpdateEquipment>
           </PrivateRoute>
         ),
+        loader: ({params})=> fetch(`http://localhost:5000/equipments/${params.id}`)
       },
     ],
   },

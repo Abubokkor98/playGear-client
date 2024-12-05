@@ -1,13 +1,24 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../provider/AuthProvider";
+import React from "react";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
-export default function AddEquipment() {
-  const { user } = useContext(AuthContext);
-  const email = user.email;
-  const userName = user.displayName;
+export default function UpdateEquipment() {
+  const equipment = useLoaderData();
+  const {
+    _id,
+    image,
+    itemName,
+    category,
+    description,
+    price,
+    rating,
+    customization,
+    processingTime,
+    stockStatus
+  } = equipment;
 
-  const handleAddEquipment = (e) => {
+
+  const handleUpdate = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const image = form.get("image");
@@ -20,7 +31,7 @@ export default function AddEquipment() {
     const processingTime = form.get("processingTime");
     const stockStatus = form.get("stockStatus");
 
-    const newEquipment = {
+    const UpdatedEquipment = {
       image,
       itemName,
       category,
@@ -29,28 +40,26 @@ export default function AddEquipment() {
       rating,
       customization,
       processingTime,
-      stockStatus,
-      email,
-      userName,
+      stockStatus
     };
 
-    console.log(newEquipment);
+    console.log(UpdatedEquipment);
 
     // send data to the server
-    fetch("http://localhost:5000/equipments", {
-      method: "POST",
+    fetch(`http://localhost:5000/equipments/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newEquipment),
+      body: JSON.stringify(UpdatedEquipment),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount>0) {
           Swal.fire({
             title: "Success!",
-            text: "Equipment added successfully",
+            text: "Equipment updated successfully",
             icon: "success",
             confirmButtonText: "ok",
           });
@@ -59,9 +68,9 @@ export default function AddEquipment() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 mt-10 bg-white shadow-md rounded-lg">
-      <h1 className="text-2xl font-bold text-center mb-6">Add New Equipment</h1>
-      <form onSubmit={handleAddEquipment} className="space-y-4">
+    <div className="max-w-4xl mx-auto p-6 my-10 bg-white shadow-md rounded-lg">
+      <h1 className="text-2xl font-bold text-center mb-6">Update {itemName}</h1>
+      <form onSubmit={handleUpdate} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Image URL
@@ -69,8 +78,9 @@ export default function AddEquipment() {
           <input
             type="text"
             name="image"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            defaultValue={image}
             placeholder="Enter image URL"
+            className="w-full p-3 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -82,8 +92,9 @@ export default function AddEquipment() {
           <input
             type="text"
             name="itemName"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            defaultValue={itemName}
             placeholder="Enter item name"
+            className="w-full p-3 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -95,8 +106,9 @@ export default function AddEquipment() {
           <input
             type="text"
             name="categoryName"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            defaultValue={category}
             placeholder="Enter category name"
+            className="w-full p-3 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -107,8 +119,9 @@ export default function AddEquipment() {
           </label>
           <textarea
             name="description"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            defaultValue={description}
             placeholder="Enter description"
+            className="w-full p-3 border border-gray-300 rounded-md"
             rows="4"
             required
           />
@@ -121,8 +134,9 @@ export default function AddEquipment() {
           <input
             type="text"
             name="price"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            defaultValue={price}
             placeholder="Enter price"
+            className="w-full p-3 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -134,8 +148,9 @@ export default function AddEquipment() {
           <input
             type="text"
             name="rating"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            defaultValue={rating}
             placeholder="Enter rating (1-5)"
+            className="w-full p-3 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -147,8 +162,9 @@ export default function AddEquipment() {
           <input
             type="text"
             name="customization"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            defaultValue={customization}
             placeholder="Customization options"
+            className="w-full p-3 border border-gray-300 rounded-md"
           />
         </div>
 
@@ -159,8 +175,9 @@ export default function AddEquipment() {
           <input
             type="text"
             name="processingTime"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            defaultValue={processingTime}
             placeholder="Enter delivery time"
+            className="w-full p-3 border border-gray-300 rounded-md"
             required
           />
         </div>
@@ -172,20 +189,19 @@ export default function AddEquipment() {
           <input
             type="number"
             name="stockStatus"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            defaultValue={stockStatus}
             placeholder="Enter stock quantity"
+            className="w-full p-3 border border-gray-300 rounded-md"
             required
           />
         </div>
 
-        <div className="flex justify-end">
-          <button
-            type="submit"
-            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-          >
-            Add Equipment
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="w-full py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition duration-300"
+        >
+          Update Equipment
+        </button>
       </form>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function MyEquipCard({
@@ -60,9 +61,11 @@ export default function MyEquipCard({
         <strong>Stock:</strong> {stockStatus} available
       </p>
       <div className="flex justify-between">
+        <Link to={`/update-equipment/${_id}`}>
         <button className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded">
           Update
         </button>
+        </Link>
         <button
           onClick={() => handleDelete(_id)}
           className="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded"

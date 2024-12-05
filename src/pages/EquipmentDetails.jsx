@@ -19,8 +19,8 @@ export default function EquipmentDetails() {
       <h2 className="text-3xl font-semibold text-center mb-6">
         Equipment Details
       </h2>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img src={image} alt={itemName} className="w-full h-64 object-cover" />
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row">
+        <img src={image} alt={itemName} className="lg:max-w-sm lg:max-h-full object-cover" />
         <div className="p-6">
           <h3 className="text-2xl font-bold mb-2">{itemName}</h3>
           <p className="text-gray-600 mb-4">{description}</p>
@@ -63,5 +63,7 @@ export default function EquipmentDetails() {
         </div>
       </div>
     </div>
+    
+
   );
 }
