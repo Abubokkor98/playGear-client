@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 export default function AllEquipment() {
+//   const { user } = useContext(AuthContext);
+//   const owner = user?.displayName;
+//   console.log(owner);
   const loadedEquipment = useLoaderData();
+
   const { image, itemName, category, price } = loadedEquipment;
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h2 className="text-3xl font-semibold text-center mb-6">
