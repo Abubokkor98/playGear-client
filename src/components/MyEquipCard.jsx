@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -44,7 +45,8 @@ export default function MyEquipCard({
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-4">
+    <Fade direction="up">
+      <div className="bg-white shadow-md rounded-lg p-4">
       <img
         className="h-40 w-full object-cover rounded-md mb-4"
         src={image}
@@ -74,5 +76,6 @@ export default function MyEquipCard({
         </button>
       </div>
     </div>
+    </Fade>
   );
 }
