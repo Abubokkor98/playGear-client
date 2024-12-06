@@ -47,35 +47,35 @@ export default function MyEquipCard({
   return (
     <Fade direction="up">
       <div className="bg-white shadow-md rounded-lg p-4">
-      <img
-        className="h-40 w-full object-cover rounded-md mb-4"
-        src={image}
-        alt="Equipment"
-      />
-      <h3 className="text-lg font-semibold mb-2">{itemName}</h3>
-      <p className="text-gray-700 text-sm mb-2">
-        <strong>Category:</strong> {category}
-      </p>
-      <p className="text-gray-700 text-sm mb-2">
-        <strong>Price:</strong> ${price}
-      </p>
-      <p className="text-gray-700 text-sm mb-4">
-        <strong>Stock:</strong> {stockStatus} available
-      </p>
-      <div className="flex justify-between">
-        <Link to={`/update-equipment/${_id}`}>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded">
-          Update
-        </button>
-        </Link>
-        <button
-          onClick={() => handleDelete(_id)}
-          className="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded"
-        >
-          Delete
-        </button>
+        <img
+          className="h-60 w-full object-cover rounded-md mb-4"
+          src={image}
+          alt={itemName}
+        />
+        <h3 className="text-lg font-semibold mb-2">{itemName}</h3>
+        <p className="text-gray-700 text-sm mb-2">
+          <strong>Category:</strong> {category}
+        </p>
+        <p className="text-gray-700 text-sm mb-2">
+          <strong>Price:</strong> ${price}
+        </p>
+        <p className="text-gray-700 text-sm mb-4">
+          <strong>Stock:</strong> {stockStatus} available
+        </p>
+        <div className="flex justify-between">
+          <Link to={`/update-equipment/${_id}`}>
+            <button className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded">
+              Update
+            </button>
+          </Link>
+          <button
+            onClick={() => handleDelete(_id)}
+            className="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded"
+          >
+            Delete
+          </button>
+        </div>
       </div>
-    </div>
     </Fade>
   );
 }
