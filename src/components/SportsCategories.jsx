@@ -27,7 +27,7 @@ export default function SportsCategories() {
   const handleCategoryClick = (category) => {
     setLoading(true);
     setSelectedCategory(category);
-    fetch(`http://localhost:5000/equipments?category=${category}`)
+    fetch(`http://localhost:5000/equipments/categories?category=${category}`)
       .then((res) => res.json())
       .then((data) => {
         setEquipments(data);

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function FeaturedEquipCard({product}) {
   return (
@@ -11,9 +12,11 @@ export default function FeaturedEquipCard({product}) {
       <h3 className="text-xl font-semibold mb-2">{product.itemName}</h3>
       <p className="text-gray-600 mb-2 flex-grow">{product.description}</p>
       <p className="text-green-500 text-lg mb-4">Price: ${product.price}</p>
+      <Link to={`/details/${product._id}`}>
       <button className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300">
         View Details
       </button>
+      </Link>
     </div>
   );
 }
