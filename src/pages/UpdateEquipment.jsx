@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -69,6 +70,9 @@ export default function UpdateEquipment() {
 
   return (
     <div className="max-w-4xl mx-auto p-6 my-10 bg-white shadow-md rounded-lg">
+      <Helmet>
+        <title>UpdateEquipment | PlayGear</title>
+      </Helmet>
       <h1 className="text-2xl font-bold text-center mb-6">Update {itemName}</h1>
       <form onSubmit={handleUpdate} className="space-y-4">
         <div>

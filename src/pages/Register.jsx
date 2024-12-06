@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 export default function Register() {
   const { registerUser, setUser, updateUserProfile } = useContext(AuthContext);
@@ -25,13 +26,13 @@ export default function Register() {
       return;
     }
     // Regex validation
-    // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
-    // if (!passwordRegex.test(password)) {
-    //   setError(
-    //     "Password must contain at least one uppercase and one lowercase letter."
-    //   );
-    //   return;
-    // }
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Password must contain at least one uppercase and one lowercase letter."
+      );
+      return;
+    }
     // call register function
     registerUser(email, password)
       .then((result) => {
@@ -52,6 +53,9 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <Helmet>
+        <title>Register | PlayGear</title>
+      </Helmet>
       <div className="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96">
         <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
           Register Account

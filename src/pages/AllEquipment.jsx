@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 export default function AllEquipment() {
@@ -16,6 +17,9 @@ export default function AllEquipment() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      <Helmet>
+        <title>AllEquipment | PlayGear</title>
+      </Helmet>
       <h2 className="text-3xl font-semibold text-center mb-6">
         All Sports Equipment {equipment.length}
       </h2>

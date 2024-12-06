@@ -36,13 +36,18 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <div className="bg-gray-100 py-10 px-4">
-      <h2 className="text-3xl font-bold text-center mb-6">Why Choose Us</h2>
+    <div className="bg-gray-100 py-12 px-4">
+      <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
+        Your Game, Our Passion
+      </h2>
+      <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-8">
+      At PlayGear, we’re committed to empowering athletes with top-notch sports gear and exceptional support. Choose us for quality, reliability, and a partner dedicated to your success.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((feature) => (
           <div
             key={feature.id}
-            className="p-6 bg-white shadow-lg rounded-lg text-center flex flex-col items-center"
+            className="p-6 bg-white shadow-lg rounded-lg text-center flex flex-col items-center hover:scale-105 transform transition duration-300"
           >
             <div className="mb-4">{feature.icon}</div>
             <h3 className="text-xl font-bold mb-2">{feature.title}</h3>

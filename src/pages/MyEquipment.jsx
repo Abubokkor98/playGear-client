@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import MyEquipCard from "../components/MyEquipCard";
+import { Helmet } from "react-helmet-async";
 
 export default function MyEquipment() {
   const { user } = useContext(AuthContext);
   const email = user.email;
-//   console.log(email);
   const [myEquipment, setmyEquipment] = useState([]);
 
   useEffect(() => {
@@ -20,6 +20,9 @@ export default function MyEquipment() {
 
   return (
     <div className="my-8">
+      <Helmet>
+        <title>MyEquipment | PlayGear</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center mb-6">
         My Equipment List {myEquipment.length}
       </h2>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 export default function AddEquipment() {
   const { user } = useContext(AuthContext);
@@ -60,6 +61,9 @@ export default function AddEquipment() {
 
   return (
     <div className="max-w-4xl mx-auto p-6 mt-10 bg-white shadow-md rounded-lg">
+      <Helmet>
+        <title>AddEquipment | PlayGear</title>
+      </Helmet>
       <h1 className="text-2xl font-bold text-center mb-6">Add New Equipment</h1>
       <form onSubmit={handleAddEquipment} className="space-y-4">
         <div>

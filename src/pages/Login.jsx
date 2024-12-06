@@ -3,6 +3,7 @@ import GoogleLogin from "../components/GoogleLogin";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function Login() {
   const { loginUser, setUser } = useContext(AuthContext);
@@ -33,6 +34,9 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <Helmet>
+        <title>Login | PlayGear</title>
+      </Helmet>
       <div className="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96">
         <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
           Login to Your Account
