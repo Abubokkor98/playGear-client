@@ -1,6 +1,7 @@
-import React from 'react'
-import Slider from '../components/Slider'
-import SportsCategories from '../components/SportsCategories'
+import React from "react";
+import Slider from "../components/Slider";
+import SportsCategories from "../components/SportsCategories";
+import FeaturedEquipment from "../components/FeaturedEquipment";
 
 export default function Home() {
   return (
@@ -9,10 +10,14 @@ export default function Home() {
         <Slider></Slider>
       </header>
       <main>
-        <SportsCategories></SportsCategories>
-        <section className='mt-10'>
+        <section>
+          <FeaturedEquipment></FeaturedEquipment>
+        </section>
+
+        <section className="mt-10">
+          <SportsCategories></SportsCategories>
         </section>
       </main>
     </div>
-  )
+  );
 }

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
+import Loading from "./Loading";
+import SportsCategoryCard from "../utilities/SportsCategoryCard";
 
 export default function SportsCategories() {
-    const [categories, setCategories] = useState([]);
-  const [filteredEquipments, setFilteredEquipments] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [equipments, setEquipments] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -10,15 +12,15 @@ export default function SportsCategories() {
     fetch("http://localhost:5000/equipments")
       .then((res) => res.json())
       .then((data) => {
-        const uniqueCategories = [];
+        const allCategories = [];
 
         data.forEach((item) => {
-          if (!uniqueCategories.includes(item.category)) {
-            uniqueCategories.push(item.category);
+          if (!allCategories.includes(item.category)) {
+            allCategories.push(item.category);
           }
         });
 
-        setCategories(uniqueCategories);
+        setCategories(allCategories);
       });
   }, []);
 
@@ -28,7 +30,7 @@ export default function SportsCategories() {
     fetch(`http://localhost:5000/equipments?category=${category}`)
       .then((res) => res.json())
       .then((data) => {
-        setFilteredEquipments(data);
+        setEquipments(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -65,33 +67,15 @@ export default function SportsCategories() {
           </h2>
 
           {loading ? (
-            <div className="flex justify-center items-center py-6">
-              <div className="w-16 h-16 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
-            </div>
+            <Loading></Loading>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-              {filteredEquipments.length > 0 ? (
-                filteredEquipments.map((item) => (
-                  <div
-                    key={item._id}
-                    className="bg-white p-6 rounded-lg shadow-lg text-center"
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.itemName}
-                      className="w-full h-56 object-cover rounded-lg mb-4"
-                    />
-                    <h3 className="text-xl font-semibold mb-2">
-                      {item.itemName}
-                    </h3>
-                    <p className="text-gray-600 mb-2">{item.description}</p>
-                    <p className="text-green-500 text-lg mb-4">
-                      Price: ${item.price}
-                    </p>
-                    <button className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300">
-                      View Details
-                    </button>
-                  </div>
+              {equipments.length > 0 ? (
+                equipments.map((equipment) => (
+                  <SportsCategoryCard
+                    key={equipment._id}
+                    equipment={equipment}
+                  ></SportsCategoryCard>
                 ))
               ) : (
                 <p className="text-center text-xl text-gray-500">
@@ -103,5 +87,5 @@ export default function SportsCategories() {
         </div>
       )}
     </div>
-  )
+  );
 }
