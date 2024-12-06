@@ -64,6 +64,7 @@ export default function AuthProvider({ children }) {
     updateUserProfile,
     googleSignIn,
     loading,
+    setLoading
   };
 
   return (
