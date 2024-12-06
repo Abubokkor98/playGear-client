@@ -7,11 +7,10 @@ export default function FeaturedEquipment() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/equipments")
+    fetch("http://localhost:5000/equipments/featured")
       .then((res) => res.json())
       .then((data) => {
-        const sliceData = data.slice(0, 6);
-        setProducts(sliceData);
+        setProducts(data);
         setLoading(false);
       });
   }, []);
