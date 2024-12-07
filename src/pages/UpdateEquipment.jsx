@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet-async";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function UpdateEquipment() {
+  const navigate = useNavigate();
   const equipment = useLoaderData();
   const {
     _id,
@@ -18,11 +19,11 @@ export default function UpdateEquipment() {
     stockStatus,
   } = equipment;
 
-  const [loading, setLoading] = useState(false);
+
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    setLoading(true);
+
 
     const form = new FormData(e.target);
     const image = form.get("image");
@@ -47,17 +48,6 @@ export default function UpdateEquipment() {
       stockStatus,
     };
 
-    //validation for price and rating
-    if (isNaN(price) || isNaN(rating)) {
-      Swal.fire({
-        title: "Error",
-        text: "Price and rating should be valid numbers.",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
-      setLoading(false);
-      return;
-    }
 
     // Send data to the server
     fetch(`https://assignment-10-server-ab.vercel.app/equipments/${_id}`, {
@@ -77,6 +67,7 @@ export default function UpdateEquipment() {
             icon: "success",
             confirmButtonText: "Ok",
           });
+          navigate(-1);
         }
       });
   };
@@ -149,7 +140,7 @@ export default function UpdateEquipment() {
             Price
           </label>
           <input
-            type="text"
+            type="number"
             name="price"
             defaultValue={price}
             placeholder="Enter price"
@@ -163,7 +154,7 @@ export default function UpdateEquipment() {
             Rating
           </label>
           <input
-            type="text"
+            type="number"
             name="rating"
             defaultValue={rating}
             placeholder="Enter rating (1-5)"

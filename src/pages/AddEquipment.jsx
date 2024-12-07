@@ -35,8 +35,6 @@ export default function AddEquipment() {
       userName,
     };
 
-    console.log(newEquipment);
-
     // send data to the server
     fetch("https://assignment-10-server-ab.vercel.app/equipments", {
       method: "POST",
@@ -123,7 +121,7 @@ export default function AddEquipment() {
             Price
           </label>
           <input
-            type="text"
+            type="number"
             name="price"
             className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter price"
@@ -136,10 +134,10 @@ export default function AddEquipment() {
             Rating
           </label>
           <input
-            type="text"
+            type="number"
             name="rating"
             className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter rating (1-5)"
+            placeholder="Enter rating (1-5) e.g. - 4.5"
             required
           />
         </div>
@@ -164,7 +162,7 @@ export default function AddEquipment() {
             type="text"
             name="processingTime"
             className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter delivery time"
+            placeholder="Enter delivery time  e.g. - 2-3 days"
             required
           />
         </div>

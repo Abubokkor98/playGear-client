@@ -17,6 +17,7 @@ export default function Home() {
         <Slider></Slider>
       </header>
       <main>
+
         <section>
           <FeaturedEquipment></FeaturedEquipment>
         </section>
