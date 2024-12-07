@@ -16,7 +16,7 @@ export default function AllEquipment() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-4xl mx-auto px-4 py-8 dark:text-white my-4">
       <Helmet>
         <title>AllEquipment | PlayGear</title>
       </Helmet>
@@ -32,19 +32,19 @@ export default function AllEquipment() {
             Sort by Price (Desc)
           </button>
         </div>
-        <div className="">
+        <div>
           <button
             onClick={handleSortAsc}
             className="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition"
           >
-            Sort by Price(Asc)
+            Sort by Price (Asc)
           </button>
         </div>
       </div>
 
       <div className="overflow-x-auto shadow-md rounded-lg">
-        <table className="table-auto w-full bg-white text-sm text-left border-collapse">
-          <thead className="bg-gray-100">
+        <table className="table-auto w-full bg-white text-sm text-left border-collapse dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+          <thead className="bg-gray-100 dark:bg-gray-700">
             <tr>
               <th className="px-4 py-2 border">Image</th>
               <th className="px-4 py-2 border">Name</th>
@@ -55,7 +55,10 @@ export default function AllEquipment() {
           </thead>
           <tbody>
             {equipment.map((equipment) => (
-              <tr key={equipment._id} className="hover:bg-gray-50">
+              <tr
+                key={equipment._id}
+                className="hover:bg-gray-50 dark:hover:bg-gray-700"
+              >
                 <td className="px-4 py-2 border">
                   <img
                     src={equipment.image}
@@ -67,10 +70,8 @@ export default function AllEquipment() {
                 <td className="px-4 py-2 border">{equipment.category}</td>
                 <td className="px-4 py-2 border">${equipment.price}</td>
                 <td className="px-4 py-2 border">
-                  <Link
-                    to={`/details/${equipment._id}`}
-                  >
-                    <button className="inline-block px-4 py-2 bg-blue-500 text-white text-xs font-semibold rounded hover:bg-blue-600">
+                  <Link to={`/details/${equipment._id}`}>
+                    <button className="inline-block px-4 py-2 bg-blue-500 text-white text-xs font-semibold rounded hover:bg-blue-600 transition dark:bg-blue-600 dark:hover:bg-blue-500">
                       View Details
                     </button>
                   </Link>

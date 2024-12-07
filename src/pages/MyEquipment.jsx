@@ -22,7 +22,7 @@ export default function MyEquipment() {
   }, []);
 
   return (
-    <div className="my-8 min-h-[450px] w-10/12 mx-auto">
+    <div className="my-8 min-h-[450px] w-10/12 mx-auto dark:text-white">
       <Helmet>
         <title>MyEquipment | PlayGear</title>
       </Helmet>
@@ -46,7 +46,7 @@ export default function MyEquipment() {
             You don't have add any equipment yet! Add to see your equipments.
           </h2>
           <Link to={"/add-equipment"}>
-            <button className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 lg:mt-20">
+            <button className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 lg:mt-20 dark:bg-blue-700 dark:hover:bg-blue-600">
               Add Equipment
             </button>
           </Link>

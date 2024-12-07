@@ -15,7 +15,7 @@ import slider3 from "../assets/slider3.jpg";
 
 export default function Slider() {
   return (
-    <div className="mb-8">
+    <div className="">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -37,13 +37,13 @@ export default function Slider() {
               backgroundImage: `url(${slider1})`,
             }}
           >
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-neutral-content text-center">
+            <div className="hero-overlay bg-opacity-60 dark:bg-opacity-70"></div>
+            <div className="hero-content text-neutral-content text-center ">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">
+                <h1 className="mb-5 text-4xl md:text-5xl font-bold dark:text-white">
                   Experience the Thrill of Football
                 </h1>
-                <p className="mb-5">
+                <p className="mb-5 dark:text-gray-300">
                   Step onto the field where dreams come alive! Football ignites
                   passion, strengthens bonds, and tests your skill with every
                   pass, tackle, and goal. Whether you're playing or cheering,
@@ -60,13 +60,13 @@ export default function Slider() {
               backgroundImage: `url(${slider2})`,
             }}
           >
-            <div className="hero-overlay bg-opacity-60"></div>
+            <div className="hero-overlay bg-opacity-60 dark:bg-opacity-70"></div>
             <div className="hero-content text-neutral-content text-center">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">
+                <h1 className="mb-5 text-4xl md:text-5xl font-bold dark:text-white">
                   Embrace the Elegance of Tennis
                 </h1>
-                <p className="mb-5">
+                <p className="mb-5 dark:text-gray-300">
                   From the sound of the racket striking the ball to the thrill
                   of match points, tennis is a blend of agility, strategy, and
                   precision. Step into the court and let the game inspire your
@@ -83,13 +83,13 @@ export default function Slider() {
               backgroundImage: `url(${slider3})`,
             }}
           >
-            <div className="hero-overlay bg-opacity-60"></div>
+            <div className="hero-overlay bg-opacity-60 dark:bg-opacity-70"></div>
             <div className="hero-content text-neutral-content text-center">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">
+                <h1 className="mb-5 text-4xl md:text-5xl font-bold dark:text-white">
                   Feel the Spirit of Cricket
                 </h1>
-                <p className="mb-5">
+                <p className="mb-5 dark:text-gray-300">
                   The gentleman's game, cricket, is more than just a sport—it's
                   a tradition. With every boundary, every wicket, and every run,
                   experience the camaraderie, strategy, and grace that make

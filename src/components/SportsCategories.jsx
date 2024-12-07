@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 import SportsCategoryCard from "../utilities/SportsCategoryCard";
 
-
 export default function SportsCategories() {
   const [categories, setCategories] = useState([]);
   const [equipments, setEquipments] = useState([]);
@@ -39,12 +38,13 @@ export default function SportsCategories() {
         setLoading(false);
       });
   };
+
   return (
-    <div className="text-center py-12 bg-gray-100">
-      <h2 className="text-4xl font-bold mb-6">
+    <div className="text-center py-12 bg-gray-100 dark:bg-gray-800 mb-10">
+      <h2 className="text-4xl font-bold mb-6 dark:text-white">
         Explore Our Sports Equipment Categories
       </h2>
-      <p className="text-lg mb-12">
+      <p className="text-lg mb-12 dark:text-gray-300">
         Click on a category to view a variety of sports equipment tailored to
         your needs!
       </p>
@@ -54,7 +54,7 @@ export default function SportsCategories() {
           <button
             key={category}
             onClick={() => handleCategoryClick(category)}
-            className="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300"
+            className="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-600"
           >
             {category}
           </button>
@@ -63,14 +63,14 @@ export default function SportsCategories() {
       {/* selected category's equipment */}
       {selectedCategory && (
         <div className="py-12">
-          <h2 className="text-4xl font-bold text-center mb-8">
+          <h2 className="text-4xl font-bold text-center mb-8 dark:text-white">
             {selectedCategory} Equipment
           </h2>
 
           {loading ? (
             <Loading></Loading>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 w-10/12 mx-auto">
               {equipments.length > 0 ? (
                 equipments.map((equipment) => (
                   <SportsCategoryCard
@@ -79,7 +79,7 @@ export default function SportsCategories() {
                   ></SportsCategoryCard>
                 ))
               ) : (
-                <p className="text-center text-xl text-gray-500">
+                <p className="text-center text-xl text-gray-500 dark:text-gray-400">
                   No equipment found in this category.
                 </p>
               )}

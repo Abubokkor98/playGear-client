@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -15,12 +15,15 @@ export default function UpdateEquipment() {
     rating,
     customization,
     processingTime,
-    stockStatus
+    stockStatus,
   } = equipment;
 
+  const [loading, setLoading] = useState(false);
 
   const handleUpdate = (e) => {
     e.preventDefault();
+    setLoading(true);
+
     const form = new FormData(e.target);
     const image = form.get("image");
     const itemName = form.get("itemName");
@@ -41,12 +44,22 @@ export default function UpdateEquipment() {
       rating,
       customization,
       processingTime,
-      stockStatus
+      stockStatus,
     };
 
-    console.log(UpdatedEquipment);
+    //validation for price and rating
+    if (isNaN(price) || isNaN(rating)) {
+      Swal.fire({
+        title: "Error",
+        text: "Price and rating should be valid numbers.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+      setLoading(false);
+      return;
+    }
 
-    // send data to the server
+    // Send data to the server
     fetch(`https://assignment-10-server-ab.vercel.app/equipments/${_id}`, {
       method: "PUT",
       headers: {
@@ -57,26 +70,26 @@ export default function UpdateEquipment() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.modifiedCount>0) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
             text: "Equipment updated successfully",
             icon: "success",
-            confirmButtonText: "ok",
+            confirmButtonText: "Ok",
           });
         }
       });
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 my-10 bg-white shadow-md rounded-lg">
+    <div className="max-w-4xl mx-auto p-6 my-10 bg-white dark:bg-gray-800 shadow-md rounded-lg dark:text-white">
       <Helmet>
-        <title>UpdateEquipment | PlayGear</title>
+        <title>Update Equipment | PlayGear</title>
       </Helmet>
-      <h1 className="text-2xl font-bold text-center mb-6">Update {itemName}</h1>
+      <h1 className="text-2xl font-bold text-center mb-6">{`Update ${itemName}`}</h1>
       <form onSubmit={handleUpdate} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Image URL
           </label>
           <input
@@ -84,13 +97,13 @@ export default function UpdateEquipment() {
             name="image"
             defaultValue={image}
             placeholder="Enter image URL"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             required
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Item Name
           </label>
           <input
@@ -98,13 +111,13 @@ export default function UpdateEquipment() {
             name="itemName"
             defaultValue={itemName}
             placeholder="Enter item name"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             required
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Category Name
           </label>
           <input
@@ -112,27 +125,27 @@ export default function UpdateEquipment() {
             name="categoryName"
             defaultValue={category}
             placeholder="Enter category name"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             required
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Description
           </label>
           <textarea
             name="description"
             defaultValue={description}
             placeholder="Enter description"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             rows="4"
             required
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Price
           </label>
           <input
@@ -140,13 +153,13 @@ export default function UpdateEquipment() {
             name="price"
             defaultValue={price}
             placeholder="Enter price"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             required
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Rating
           </label>
           <input
@@ -154,13 +167,13 @@ export default function UpdateEquipment() {
             name="rating"
             defaultValue={rating}
             placeholder="Enter rating (1-5)"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             required
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Customization
           </label>
           <input
@@ -168,12 +181,12 @@ export default function UpdateEquipment() {
             name="customization"
             defaultValue={customization}
             placeholder="Customization options"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Processing Time
           </label>
           <input
@@ -181,13 +194,13 @@ export default function UpdateEquipment() {
             name="processingTime"
             defaultValue={processingTime}
             placeholder="Enter delivery time"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             required
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Stock Status
           </label>
           <input
@@ -195,7 +208,7 @@ export default function UpdateEquipment() {
             name="stockStatus"
             defaultValue={stockStatus}
             placeholder="Enter stock quantity"
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             required
           />
         </div>

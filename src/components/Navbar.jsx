@@ -28,7 +28,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-800 dark:bg-blue-900 text-white shadow-md">
+    <nav className="bg-gray-800 dark:bg-gray-900 text-white shadow-md transition-colors duration-300">
       <div className="px-4 py-3 flex justify-between items-center">
         {/* Website Logo/Name */}
         <Link to="/" className="text-2xl font-bold">
@@ -37,11 +37,11 @@ export default function Navbar() {
 
         {/* Hamburger Menu */}
         <div className="flex items-center space-x-4 lg:hidden">
-          {/* dark mode */}
+          {/* Dark Mode Toggle */}
           <button onClick={() => darkModeHandler()}>
-            {dark && <IoSunny />}
-            {!dark && <IoMoon />}
+            {dark ? <IoSunny /> : <IoMoon />}
           </button>
+
           {/* User Image */}
           {user ? (
             <div className="mr-4">
@@ -112,10 +112,9 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center space-x-4">
           {user ? (
             <>
-              {/* dark mode */}
+              {/* Dark Mode Toggle */}
               <button onClick={() => darkModeHandler()}>
-                {dark && <IoSunny />}
-                {!dark && <IoMoon />}
+                {dark ? <IoSunny /> : <IoMoon />}
               </button>
               <div className="relative group">
                 <img
@@ -137,10 +136,9 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              {/* dark mode */}
+              {/* Dark Mode Toggle */}
               <button onClick={() => darkModeHandler()}>
-                {dark && <IoSunny />}
-                {!dark && <IoMoon />}
+                {dark ? <IoSunny /> : <IoMoon />}
               </button>
               <Link
                 to="/login"

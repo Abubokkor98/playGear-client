@@ -44,31 +44,31 @@ export default function MyEquipCard({
 
   return (
     <Fade direction="up" delay={200} triggerOnce>
-      <div className="bg-white shadow-md rounded-lg p-4">
+      <div className="bg-white shadow-md rounded-lg p-4 dark:bg-gray-800 dark:text-white">
         <img
           className="h-60 w-full object-cover rounded-md mb-4"
           src={image}
           alt={itemName}
         />
         <h3 className="text-lg font-semibold mb-2">{itemName}</h3>
-        <p className="text-gray-700 text-sm mb-2">
+        <p className="text-gray-700 text-sm mb-2 dark:text-gray-300">
           <strong>Category:</strong> {category}
         </p>
-        <p className="text-gray-700 text-sm mb-2">
+        <p className="text-gray-700 text-sm mb-2 dark:text-gray-300">
           <strong>Price:</strong> ${price}
         </p>
-        <p className="text-gray-700 text-sm mb-4">
+        <p className="text-gray-700 text-sm mb-4 dark:text-gray-300">
           <strong>Stock:</strong> {stockStatus} available
         </p>
         <div className="flex justify-between">
           <Link to={`/update-equipment/${_id}`}>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded dark:bg-blue-700 dark:hover:bg-blue-600">
               Update
             </button>
           </Link>
           <button
             onClick={() => handleDelete(_id)}
-            className="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded"
+            className="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded dark:bg-red-600 dark:hover:bg-red-500"
           >
             Delete
           </button>

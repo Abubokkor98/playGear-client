@@ -20,13 +20,14 @@ export default function Home() {
         <section>
           <FeaturedEquipment></FeaturedEquipment>
         </section>
+        <section className="mt-10">
+          <SportsCategories></SportsCategories>
+        </section>
         <section>
           <LottiAnimation></LottiAnimation>
         </section>
 
-        <section className="mt-10">
-          <SportsCategories></SportsCategories>
-        </section>
+        
         <section>
           <WhyChooseUs></WhyChooseUs>
         </section>
