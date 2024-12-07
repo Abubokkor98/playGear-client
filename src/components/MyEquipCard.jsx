@@ -1,7 +1,7 @@
 import React from "react";
-import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Fade } from "react-awesome-reveal";
 
 export default function MyEquipCard({
   equipment,
@@ -11,7 +11,6 @@ export default function MyEquipCard({
   const { _id, image, itemName, category, price, stockStatus } = equipment;
 
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -27,7 +26,6 @@ export default function MyEquipCard({
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -45,7 +43,7 @@ export default function MyEquipCard({
   };
 
   return (
-    <Fade direction="up">
+    <Fade direction="up" delay={200} triggerOnce>
       <div className="bg-white shadow-md rounded-lg p-4">
         <img
           className="h-60 w-full object-cover rounded-md mb-4"
