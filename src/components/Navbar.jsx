@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
 import { IoMoon, IoSunny } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
   const { user, logoutUser, setUser } = useContext(AuthContext);
@@ -13,7 +14,7 @@ export default function Navbar() {
     logoutUser()
       .then(() => {
         setUser(null);
-        alert("User Logged out");
+        toast.error("User Logged out");
       })
       .catch((error) => {
         console.log(error.message);

@@ -4,31 +4,30 @@ import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const { loginUser, setUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setError("");
     const form = new FormData(e.target);
     const email = form.get("email");
     const password = form.get("password");
-    console.log({ email, password });
+
 
     loginUser(email, password)
       .then((result) => {
         const user = result.user;
         setUser(user);
         navigate(location?.state ? location.state : "/");
-        alert("login successfully");
+        toast.success("login successfully");
       })
       .catch((err) => {
-        setError({ ...error, login: err.code });
+        toast.error(err.message);
       });
   };
 
@@ -69,8 +68,6 @@ export default function Login() {
               {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
             </button>
           </div>
-          {error.login && <p className="text-red-600 text-xs">{error.login}</p>}
-
           <button
             type="submit"
             className="w-full py-2 mt-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
