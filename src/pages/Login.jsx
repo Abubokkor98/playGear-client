@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import GoogleLogin from "../components/GoogleLogin";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 export default function Login() {
@@ -81,9 +81,9 @@ export default function Login() {
 
         <p className="mt-4 text-center text-gray-600">
           Don't have an account?{" "}
-          <a href="/auth/register" className="text-blue-600 hover:underline">
+          <Link to={"/register"} className="text-blue-600 hover:underline">
             Register here
-          </a>
+          </Link>
         </p>
         <div className="mt-6">
           <GoogleLogin></GoogleLogin>

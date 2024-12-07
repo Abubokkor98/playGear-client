@@ -38,7 +38,7 @@ export default function AddEquipment() {
     console.log(newEquipment);
 
     // send data to the server
-    fetch("http://localhost:5000/equipments", {
+    fetch("https://assignment-10-server-ab.vercel.app/equipments", {
       method: "POST",
       headers: {
         "content-type": "application/json",

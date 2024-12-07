@@ -2,10 +2,12 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
+import { IoMoon, IoSunny } from "react-icons/io5";
 
 export default function Navbar() {
   const { user, logoutUser, setUser } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [dark, setDark] = useState(false);
 
   const handleLogout = () => {
     logoutUser()
@@ -18,8 +20,14 @@ export default function Navbar() {
       });
   };
 
+  // handle dark mode
+  const darkModeHandler = () => {
+    setDark(!dark);
+    document.body.classList.toggle("dark");
+  };
+
   return (
-    <nav className="bg-gray-800 text-white shadow-md">
+    <nav className="bg-gray-800 dark:bg-blue-900 text-white shadow-md">
       <div className="px-4 py-3 flex justify-between items-center">
         {/* Website Logo/Name */}
         <Link to="/" className="text-2xl font-bold">
@@ -28,6 +36,11 @@ export default function Navbar() {
 
         {/* Hamburger Menu */}
         <div className="flex items-center space-x-4 lg:hidden">
+          {/* dark mode */}
+          <button onClick={() => darkModeHandler()}>
+            {dark && <IoSunny />}
+            {!dark && <IoMoon />}
+          </button>
           {/* User Image */}
           {user ? (
             <div className="mr-4">
@@ -98,6 +111,11 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center space-x-4">
           {user ? (
             <>
+              {/* dark mode */}
+              <button onClick={() => darkModeHandler()}>
+                {dark && <IoSunny />}
+                {!dark && <IoMoon />}
+              </button>
               <div className="relative group">
                 <img
                   src={user?.photoURL}
@@ -118,14 +136,19 @@ export default function Navbar() {
             </>
           ) : (
             <>
+              {/* dark mode */}
+              <button onClick={() => darkModeHandler()}>
+                {dark && <IoSunny />}
+                {!dark && <IoMoon />}
+              </button>
               <Link
-                to="/auth/login"
+                to="/login"
                 className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-sm"
               >
                 Login
               </Link>
               <Link
-                to="/auth/register"
+                to="/register"
                 className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-sm"
               >
                 Register
@@ -182,14 +205,14 @@ export default function Navbar() {
           {!user ? (
             <>
               <Link
-                to="/auth/login"
+                to="/login"
                 className="bg-blue-500 hover:bg-blue-600 text-white w-full px-4 py-2 rounded-md text-sm"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Login
               </Link>
               <Link
-                to="/auth/register"
+                to="/register"
                 className="bg-green-500 hover:bg-green-600 text-white w-full px-4 py-2 rounded-md text-sm"
                 onClick={() => setIsMenuOpen(false)}
               >

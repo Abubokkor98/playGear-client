@@ -9,7 +9,7 @@ export default function MyEquipment() {
   const [myEquipment, setmyEquipment] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/equipments/user?email=${email}`)
+    fetch(`https://assignment-10-server-ab.vercel.app/equipments/user?email=${email}`)
       .then((res) => res.json())
       .then((data) => {
         setmyEquipment(data);

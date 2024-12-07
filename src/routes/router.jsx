@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import ErrorPage from "../pages/ErrorPage";
-import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddEquipment from "../pages/AddEquipment";
@@ -13,7 +12,6 @@ import EquipmentDetails from "../pages/EquipmentDetails";
 import UpdateEquipment from "../pages/UpdateEquipment";
 
 export const router = createBrowserRouter([
-  
   {
     path: "/",
     element: <MainLayout></MainLayout>,
@@ -26,7 +24,8 @@ export const router = createBrowserRouter([
       {
         path: "/all-equipment",
         element: <AllEquipment></AllEquipment>,
-        loader: ()=> fetch('http://localhost:5000/equipments')
+        loader: () =>
+          fetch("https://assignment-10-server-ab.vercel.app/equipments"),
       },
       {
         path: "/details/:_id",
@@ -35,12 +34,14 @@ export const router = createBrowserRouter([
             <EquipmentDetails></EquipmentDetails>
           </PrivateRoute>
         ),
-        loader: async ({params})=>{
-          const res = await fetch('http://localhost:5000/equipments');
+        loader: async ({ params }) => {
+          const res = await fetch(
+            "https://assignment-10-server-ab.vercel.app/equipments"
+          );
           const data = await res.json();
-          const singleData = data.find(d=>d._id == params._id);
+          const singleData = data.find((d) => d._id == params._id);
           return singleData;
-        }
+        },
       },
       {
         path: "/add-equipment",
@@ -65,20 +66,17 @@ export const router = createBrowserRouter([
             <UpdateEquipment></UpdateEquipment>
           </PrivateRoute>
         ),
-        loader: ({params})=> fetch(`http://localhost:5000/equipments/${params.id}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-server-ab.vercel.app/equipments/${params.id}`
+          ),
       },
-    ],
-  },
-  {
-    path: "/auth",
-    element: <AuthLayout></AuthLayout>,
-    children: [
       {
-        path: "/auth/login",
+        path: "/login",
         element: <Login></Login>,
       },
       {
-        path: "/auth/register",
+        path: "/register",
         element: <Register></Register>,
       },
     ],

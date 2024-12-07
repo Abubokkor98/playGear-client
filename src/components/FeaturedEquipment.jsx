@@ -7,7 +7,7 @@ export default function FeaturedEquipment() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/equipments/featured")
+    fetch("https://assignment-10-server-ab.vercel.app/equipments/featured")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

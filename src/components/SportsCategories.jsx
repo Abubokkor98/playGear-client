@@ -9,7 +9,7 @@ export default function SportsCategories() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/equipments")
+    fetch("https://assignment-10-server-ab.vercel.app/equipments")
       .then((res) => res.json())
       .then((data) => {
         const allCategories = [];
@@ -27,7 +27,7 @@ export default function SportsCategories() {
   const handleCategoryClick = (category) => {
     setLoading(true);
     setSelectedCategory(category);
-    fetch(`http://localhost:5000/equipments/categories?category=${category}`)
+    fetch(`https://assignment-10-server-ab.vercel.app/equipments/categories?category=${category}`)
       .then((res) => res.json())
       .then((data) => {
         setEquipments(data);
