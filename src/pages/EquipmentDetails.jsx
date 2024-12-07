@@ -1,8 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { useLoaderData } from "react-router-dom";
+import { IoCloseSharp } from "react-icons/io5";
+// import { IoIosCloseCircleOutline } from "react-icons/io";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 
 export default function EquipmentDetails() {
+
   const {
     image,
     itemName,
@@ -23,7 +26,11 @@ export default function EquipmentDetails() {
       <h2 className="text-3xl font-semibold text-center mb-6">
         Equipment Details
       </h2>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row relative">
+        {/* back button */}
+        <button className=" text-2xl  bg-red-500 rounded-full text-white absolute">
+          <IoCloseSharp />
+        </button>
         <img
           src={image}
           alt={itemName}

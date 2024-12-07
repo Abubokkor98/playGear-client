@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 import SportsCategoryCard from "../utilities/SportsCategoryCard";
 
+
 export default function SportsCategories() {
   const [categories, setCategories] = useState([]);
   const [equipments, setEquipments] = useState([]);

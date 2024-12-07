@@ -67,7 +67,9 @@ export default function AllEquipment() {
                 <td className="px-4 py-2 border">{equipment.category}</td>
                 <td className="px-4 py-2 border">${equipment.price}</td>
                 <td className="px-4 py-2 border">
-                  <Link to={`/details/${equipment._id}`}>
+                  <Link
+                    to={`/details/${equipment._id}`}
+                  >
                     <button className="inline-block px-4 py-2 bg-blue-500 text-white text-xs font-semibold rounded hover:bg-blue-600">
                       View Details
                     </button>

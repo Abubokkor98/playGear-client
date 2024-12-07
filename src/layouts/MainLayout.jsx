@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 export default function MainLayout() {
   return (
-    <div className='max-w-screen-xl mx-auto'>
+    <div className='max-w-screen-2xl mx-auto'>
         <header>
             <Navbar></Navbar>
         </header>

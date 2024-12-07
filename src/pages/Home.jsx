@@ -5,6 +5,7 @@ import FeaturedEquipment from "../components/FeaturedEquipment";
 import WhyChooseUs from "../components/WhyChooseUs";
 import BrandsWeWorkWith from "../components/BrandsWeWorkWith";
 import { Helmet } from "react-helmet-async";
+import LottiAnimation from "../utilities/LottiAnimation";
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
       <main>
         <section>
           <FeaturedEquipment></FeaturedEquipment>
+        </section>
+        <section>
+          <LottiAnimation></LottiAnimation>
         </section>
 
         <section className="mt-10">
