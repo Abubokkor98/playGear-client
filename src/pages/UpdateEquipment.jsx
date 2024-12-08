@@ -24,7 +24,6 @@ export default function UpdateEquipment() {
   const handleUpdate = (e) => {
     e.preventDefault();
 
-
     const form = new FormData(e.target);
     const image = form.get("image");
     const itemName = form.get("itemName");
@@ -35,6 +34,17 @@ export default function UpdateEquipment() {
     const customization = form.get("customization");
     const processingTime = form.get("processingTime");
     const stockStatus = form.get("stockStatus");
+
+    // Validate rating
+  if (isNaN(rating) || rating < 1 || rating > 5) {
+    Swal.fire({
+      title: "Error",
+      text: "Rating must be a valid number between 1 and 5.",
+      icon: "error",
+      confirmButtonText: "Ok",
+    });
+    return;
+  }
 
     const UpdatedEquipment = {
       image,
@@ -154,7 +164,7 @@ export default function UpdateEquipment() {
             Rating
           </label>
           <input
-            type="number"
+            type="text"
             name="rating"
             defaultValue={rating}
             placeholder="Enter rating (1-5)"

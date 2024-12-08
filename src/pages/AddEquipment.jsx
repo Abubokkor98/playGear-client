@@ -21,6 +21,17 @@ export default function AddEquipment() {
     const processingTime = form.get("processingTime");
     const stockStatus = form.get("stockStatus");
 
+    // Validate rating
+    if (isNaN(rating) || rating < 1 || rating > 5) {
+      Swal.fire({
+        title: "Error",
+        text: "Rating must be a valid number between 1 and 5.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+      return;
+    }
+
     const newEquipment = {
       image,
       itemName,
@@ -133,7 +144,7 @@ export default function AddEquipment() {
             Rating
           </label>
           <input
-            type="number"
+            type="text"
             name="rating"
             className="w-full p-3 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter rating (1-5) e.g. - 4.5"
