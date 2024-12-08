@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function GoogleLogin() {
   const { googleSignIn, setUser } = useContext(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleGoogle = () => {
@@ -12,9 +13,8 @@ export default function GoogleLogin() {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        toast.success("User login successfully.");
         navigate(location?.state ? location.state : "/");
-        // console.log(user);
+        toast.success("User login successfully.");
       })
       .catch((error) => {
         toast.error(error.message);

@@ -16,8 +16,6 @@ export default function MyEquipment() {
       .then((res) => res.json())
       .then((data) => {
         setmyEquipment(data);
-
-        console.log(data);
       });
   }, []);
 

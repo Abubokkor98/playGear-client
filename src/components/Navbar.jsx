@@ -42,7 +42,7 @@ export default function Navbar() {
             {dark ? <IoSunny /> : <IoMoon />}
           </button>
 
-          {/* User Image */}
+
           {user ? (
             <div className="mr-4">
               {user.photoURL ? (
@@ -68,7 +68,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Desktop Menu (unchanged for large devices) */}
+        {/* Desktop Menu */}
         <div className="hidden lg:flex space-x-6">
           <NavLink
             to="/"
@@ -108,7 +108,7 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Authentication Buttons for Desktop */}
+        {/* btns for desktop */}
         <div className="hidden lg:flex items-center space-x-4">
           {user ? (
             <>
@@ -200,7 +200,7 @@ export default function Navbar() {
               </NavLink>
             </>
           )}
-          {/* Authentication Buttons in Dropdown */}
+          {/*Btns in Dropdown */}
           {!user ? (
             <>
               <Link
