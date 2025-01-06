@@ -1,98 +1,100 @@
 import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import toast from "react-hot-toast";
+import loginLottie from "../assets/login.json";
 import GoogleLogin from "../components/GoogleLogin";
 import { AuthContext } from "../provider/AuthProvider";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import toast from "react-hot-toast";
 
 export default function Login() {
   const { loginUser, setUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const from = location.state || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const form = new FormData(e.target);
-    const email = form.get("email");
-    const password = form.get("password");
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
     loginUser(email, password)
       .then((result) => {
-        const user = result.user;
-        setUser(user);
-        navigate(location?.state ? location.state : "/");
-        toast.success("login successfully");
+        setUser(result.user);
+        toast.success("Login successfully");
+        navigate(from);
       })
-      .catch((err) => {
-        toast.error(err.message);
-      });
+      .catch((error) => toast.error(error.message));
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 flex items-center justify-center">
+    <motion.div
+      initial={{ y: "-100vh", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1.2, ease: "easeInOut" }}
+      className="flex items-center justify-center min-h-screen bg-teal-50 dark:bg-teal-900"
+    >
       <Helmet>
         <title>Login | PlayGear</title>
       </Helmet>
-      <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full sm:w-96">
-        <h2 className="text-2xl font-semibold text-center text-gray-800 dark:text-gray-100 mb-6">
-          Login to Your Account
-        </h2>
-        <form onSubmit={handleLogin}>
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300">
-              Email
-            </label>
+      <div className="flex flex-col lg:flex-row shadow-lg rounded-lg bg-white max-w-4xl w-full">
+        {/* Left Section */}
+        <div className="p-8 lg:w-1/2 flex flex-col justify-center items-center">
+          <h2 className="text-3xl font-bold mb-4 text-teal-700 dark:text-teal-200">
+            Sign In
+          </h2>
+          <GoogleLogin />
+          <form onSubmit={handleLogin} className="w-full">
             <input
-              type="email"
               name="email"
-              placeholder="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:focus:ring-blue-500"
+              type="email"
+              placeholder="Email"
+              className="block w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:bg-teal-800 dark:border-teal-600 dark:text-teal-300"
               required
             />
-          </div>
-
-          <div className="mb-4 relative">
-            <label className="block text-gray-700 dark:text-gray-300">
-              Password
-            </label>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              placeholder="password"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:focus:ring-blue-500"
-              required
-            />
+            <div className="relative w-full mb-4">
+              <input
+                name="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:bg-teal-800 dark:border-teal-600 dark:text-teal-300"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-3 flex items-center text-teal-500 dark:text-teal-300"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
             <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="btn btn-xs absolute right-2 top-8"
+              type="submit"
+              className="bg-gradient-to-r from-teal-500 to-blue-500 text-white hover:scale-105 px-6 py-2 rounded-xl font-medium transition"
             >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
+              Sign In
             </button>
-          </div>
-          <button
-            type="submit"
-            className="w-full py-2 mt-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
-          >
-            Login
-          </button>
-        </form>
+          </form>
+        </div>
 
-        <p className="mt-4 text-center text-gray-600 dark:text-gray-400">
-          Don't have an account?{" "}
+        {/* Right Section */}
+        <div className="bg-gradient-to-r from-teal-500 to-blue-500 text-white p-8 lg:w-1/2 flex flex-col justify-center items-center rounded-r-lg md:rounded-tl-[100px] md:rounded-bl-[100px]">
+          <Lottie className="w-full h-36" animationData={loginLottie} />
+          <p className="my-2 text-sm text-center">
+            Register with your personal details to enjoy all features.
+          </p>
           <Link
-            to={"/register"}
-            className="text-blue-600 hover:underline dark:text-blue-400"
+            to="/register"
+            className="bg-white text-teal-500 hover:scale-105 px-6 py-2 rounded-xl font-medium transition"
           >
-            Register here
+            Sign Up
           </Link>
-        </p>
-        <div className="mt-6">
-          <GoogleLogin></GoogleLogin>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

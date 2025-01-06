@@ -22,10 +22,10 @@ export default function GoogleLogin() {
   };
 
   return (
-    <div className="">
+    <div className="my-2">
       <button
         onClick={handleGoogle}
-        className="w-full py-2 flex items-center justify-center border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+        className="btn w-full flex items-center justify-center border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
       >
         <img
           src="https://www.svgrepo.com/show/355037/google.svg"
