@@ -28,7 +28,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-800 dark:bg-gray-900 text-white shadow-md transition-colors duration-300">
+    <nav className="sticky top-0 z-50 bg-gray-800 dark:bg-gray-900 text-white shadow-md transition-colors duration-300">
       <div className="px-4 py-3 flex justify-between items-center">
         {/* Website Logo/Name */}
         <Link to="/" className="text-2xl font-bold">
@@ -41,7 +41,6 @@ export default function Navbar() {
           <button onClick={() => darkModeHandler()}>
             {dark ? <IoSunny /> : <IoMoon />}
           </button>
-
 
           {user ? (
             <div className="mr-4">
