@@ -70,7 +70,7 @@ export default function SportsCategories() {
           {loading ? (
             <Loading></Loading>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 w-10/12 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
               {equipments.length > 0 ? (
                 equipments.map((equipment) => (
                   <SportsCategoryCard
