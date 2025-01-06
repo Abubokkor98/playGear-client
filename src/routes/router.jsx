@@ -24,8 +24,6 @@ export const router = createBrowserRouter([
       {
         path: "/all-equipment",
         element: <AllEquipment></AllEquipment>,
-        loader: () =>
-          fetch("https://assignment-10-server-ab.vercel.app/equipments"),
       },
       {
         path: "/details/:_id",

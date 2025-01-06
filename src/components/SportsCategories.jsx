@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
-import SportsCategoryCard from "../utilities/SportsCategoryCard";
+import EquipmentCard from "../utilities/EquipmentCard";
 
 export default function SportsCategories() {
   const [categories, setCategories] = useState([]);
@@ -27,7 +27,9 @@ export default function SportsCategories() {
   const handleCategoryClick = (category) => {
     setLoading(true);
     setSelectedCategory(category);
-    fetch(`https://assignment-10-server-ab.vercel.app/equipments/categories?category=${category}`)
+    fetch(
+      `https://assignment-10-server-ab.vercel.app/equipments/categories?category=${category}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setEquipments(data);
@@ -40,11 +42,11 @@ export default function SportsCategories() {
   };
 
   return (
-    <div className="text-center py-12 bg-gray-100 dark:bg-gray-800 mb-10">
-      <h2 className="text-4xl font-bold mb-6 dark:text-white">
+    <div className="text-center py-12 bg-gray-100 dark:bg-gray-800 mb-10 px-4">
+      <h2 className="text-4xl font-bold mb-4 dark:text-white ">
         Explore Our Sports Equipment Categories
       </h2>
-      <p className="text-lg mb-12 dark:text-gray-300">
+      <p className="text-lg mb-10 dark:text-gray-300">
         Click on a category to view a variety of sports equipment tailored to
         your needs!
       </p>
@@ -73,10 +75,10 @@ export default function SportsCategories() {
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
               {equipments.length > 0 ? (
                 equipments.map((equipment) => (
-                  <SportsCategoryCard
+                  <EquipmentCard
                     key={equipment._id}
                     equipment={equipment}
-                  ></SportsCategoryCard>
+                  ></EquipmentCard>
                 ))
               ) : (
                 <p className="text-center text-xl text-gray-500 dark:text-gray-400">

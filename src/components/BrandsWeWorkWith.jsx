@@ -49,7 +49,7 @@ export default function BrandsWeWorkWith() {
       <div className="absolute bottom-0 right-0 w-48 h-48 bg-pink-400 opacity-20 rounded-full blur-3xl transform translate-x-16 translate-y-16"></div>
 
       <Fade cascade>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
+        <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
           Brands We Work With
         </h2>
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10">

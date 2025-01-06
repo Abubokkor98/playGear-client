@@ -16,19 +16,17 @@ export default function Home() {
       <header>
         <Slider></Slider>
       </header>
-      <main>
 
+      <main>
         <section>
           <FeaturedEquipment></FeaturedEquipment>
         </section>
-        <section className="mt-10">
+        <section>
           <SportsCategories></SportsCategories>
         </section>
         <section>
           <LottiAnimation></LottiAnimation>
         </section>
-
-        
         <section>
           <WhyChooseUs></WhyChooseUs>
         </section>

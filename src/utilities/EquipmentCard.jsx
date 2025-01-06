@@ -2,19 +2,16 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default function SportsCategoryCard({ equipment }) {
+export default function EquipmentCard({ equipment }) {
   return (
-    <div
-      key={equipment._id}
-      className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center dark:bg-gray-800 dark:text-white"
-    >
+    <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center dark:bg-gray-800 dark:text-white">
       <img
         src={equipment.image}
         alt={equipment.itemName}
         className="w-full h-56 object-cover rounded-lg mb-4"
       />
       <h3 className="text-xl font-semibold mb-2">{equipment.itemName}</h3>
-      <p className="text-gray-600 mb-2 dark:text-gray-300">
+      <p className="text-gray-600 mb-2  text-center dark:text-gray-300">
         {equipment.description}
       </p>
       <p className="text-green-500 text-lg mb-4 dark:text-green-400">

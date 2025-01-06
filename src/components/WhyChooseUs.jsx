@@ -40,7 +40,7 @@ export default function WhyChooseUs() {
       <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-4">
         Your Game, Our Passion
       </h2>
-      <p className="text-lg text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-8">
+      <p className="text-lg text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-10">
       At PlayGear, we’re committed to empowering athletes with top-notch sports gear and exceptional support. Choose us for quality, reliability, and a partner dedicated to your success.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
