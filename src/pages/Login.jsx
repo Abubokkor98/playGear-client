@@ -82,7 +82,7 @@ export default function Login() {
     </div>
 
     {/* Right Section */}
-    <div className="bg-gradient-to-r from-teal-500 to-blue-500 text-white p-8 lg:w-1/2 flex flex-col justify-center items-center rounded-r-lg md:rounded-tl-[100px] md:rounded-bl-[100px]">
+    <div className="bg-gradient-to-r from-teal-500 to-blue-500 text-white p-8 lg:w-1/2 m-2 lg:m-0 flex flex-col justify-center items-center rounded-r-lg md:rounded-tl-[100px] md:rounded-bl-[100px]">
       <Lottie className="w-full h-36" animationData={loginLottie} />
       <p className="my-2 text-sm text-center">
         Register with your personal details to enjoy all features.

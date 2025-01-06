@@ -1,9 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
+import Lottie from "lottie-react";
+import { motion } from "framer-motion";
+import registerLottie from "../assets/register.json";
+import { AuthContext } from "../provider/AuthProvider";
 
 export default function Register() {
   const { registerUser, setUser, updateUserProfile } = useContext(AuthContext);
@@ -21,12 +24,10 @@ export default function Register() {
     const photo = form.get("photo");
     const password = form.get("password");
 
-    // Length validation
     if (password.length < 6) {
       setError("Password must be 6 characters or longer.");
       return;
     }
-    // Regex validation
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
     if (!passwordRegex.test(password)) {
       setError(
@@ -34,7 +35,7 @@ export default function Register() {
       );
       return;
     }
-    // call register function
+
     registerUser(email, password)
       .then((result) => {
         const user = result.user;
@@ -53,83 +54,86 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 flex items-center justify-center">
+    <motion.div
+      initial={{ y: "-100vh", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1.2, ease: "easeInOut" }}
+      className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-800"
+    >
       <Helmet>
         <title>Register | PlayGear</title>
       </Helmet>
-      <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full sm:w-96">
-        <h2 className="text-2xl font-semibold text-center text-gray-800 dark:text-white mb-6">
-          Register Account
-        </h2>
-        <form onSubmit={handleRegister}>
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300">Name</label>
+      <div className="flex flex-col lg:flex-row shadow-lg rounded-lg bg-white dark:bg-gray-700 max-w-4xl w-full">
+        {/* Left Section */}
+        <div className="p-8 lg:w-1/2 flex flex-col justify-center items-center">
+          <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-blue-300">
+            Create Account
+          </h2>
+          <form onSubmit={handleRegister} className="w-full">
             <input
               type="text"
               name="name"
-              placeholder="name"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              placeholder="Name"
+              className="block w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
               required
             />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300">Email</label>
             <input
               type="email"
               name="email"
-              placeholder="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              placeholder="Email"
+              className="block w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
               required
             />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300">Photo URL</label>
             <input
               type="text"
               name="photo"
-              placeholder="photo URL"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              placeholder="Photo URL"
+              className="block w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
               required
             />
-          </div>
-
-          <div className="mb-4 relative">
-            <label className="block text-gray-700 dark:text-gray-300">Password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
-              placeholder="password"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              required
-            />
+            <div className="relative w-full mb-4">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-4 right-3 flex items-center text-blue-500 dark:text-blue-300"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+              {/* Reserve space for error message */}
+              <div className="h-5">
+                {error && <p className="text-red-600 text-xs">{error}</p>}
+              </div>
+            </div>
             <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="btn btn-xs absolute right-2 top-8"
+              type="submit"
+              className="bg-gradient-to-r from-blue-500 to-teal-500 text-white hover:scale-105 px-6 py-2 rounded-xl font-medium transition"
             >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
+              Sign Up
             </button>
-            {error && <p className="text-red-600 text-xs mt-1">{error}</p>}
-          </div>
+          </form>
+        </div>
 
-          <button
-            type="submit"
-            className="w-full py-2 mt-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
+        {/* Right Section */}
+        <div className="bg-gradient-to-r from-blue-500 to-teal-500 text-white p-8 m-2 lg:m-0 lg:w-1/2 flex flex-col justify-center items-center rounded-r-lg md:rounded-tl-[100px] md:rounded-bl-[100px]">
+          <Lottie className="w-full h-36" animationData={registerLottie} />
+          <p className="my-2 text-sm text-center">
+            Already have an account? Login to access your profile.
+          </p>
+          <Link
+            to="/login"
+            className="bg-white text-blue-500 hover:bg-gray-100 px-6 py-2 rounded-xl font-medium transition"
           >
-            Register
-          </button>
-        </form>
-
-        <p className="mt-4 text-center text-gray-600 dark:text-gray-300">
-          Already have an account?{" "}
-          <Link to={"/login"} className="text-blue-600 hover:underline dark:text-blue-400">
-            Login here
+            Login
           </Link>
-        </p>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
