@@ -11,7 +11,7 @@ export default function EquipmentCard({ equipment }) {
         className="w-full h-56 object-cover rounded-lg mb-4"
       />
       <h3 className="text-xl font-semibold mb-2">{equipment.itemName}</h3>
-      <p className="text-gray-600 mb-2  text-center dark:text-gray-300">
+      <p className="text-gray-600 mb-2 flex-grow text-center dark:text-gray-300">
         {equipment.description}
       </p>
       <p className="text-green-500 text-lg mb-4 dark:text-green-400">

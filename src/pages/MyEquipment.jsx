@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import MyEquipCard from "../components/MyEquipCard";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
@@ -69,8 +68,8 @@ export default function MyEquipment() {
         <Loading></Loading>
       ) : (
         <>
-          <h2 className="text-4xl font-bold text-center mb-6">
-            My Equipment List {myEquipment.length}
+          <h2 className="text-4xl font-bold text-center mb-10">
+          Manage Your {myEquipment.length} Equipment Items Below!
           </h2>
           {myEquipment.length > 0 ? (
             <table className="table-auto w-full bg-white text-sm text-left border-collapse dark:bg-gray-800 dark:border-gray-700 dark:text-white">

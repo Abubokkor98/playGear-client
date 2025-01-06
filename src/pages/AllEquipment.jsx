@@ -21,13 +21,16 @@ export default function AllEquipment() {
       });
   }, []);
 
-  const handleSortAsc = () => {
-    const sortedEquipment = [...equipments].sort((a, b) => a.price - b.price);
-    setEquipments(sortedEquipment);
-  };
-  const handleSortDes = () => {
-    const sortedEquipment = [...equipments].sort((a, b) => b.price - a.price);
-    setEquipments(sortedEquipment);
+  const handleSortChange = (event) => {
+    const sortOption = event.target.value;
+
+    if (sortOption === "asc") {
+      const sortedEquipment = [...equipments].sort((a, b) => a.price - b.price);
+      setEquipments(sortedEquipment);
+    } else if (sortOption === "desc") {
+      const sortedEquipment = [...equipments].sort((a, b) => b.price - a.price);
+      setEquipments(sortedEquipment);
+    }
   };
 
   return (
@@ -37,12 +40,33 @@ export default function AllEquipment() {
       </Helmet>
 
       {loading ? (
-        <Loading></Loading>
+        <Loading />
       ) : (
         <>
           <h2 className="text-4xl font-bold text-center mb-6">
-            All Equipments: {equipments.length}
+            Explore Our Sports Equipment!
           </h2>
+          <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
+            Explore our extensive collection of sports equipment. Whether you're
+            a professional athlete or a hobbyist, we have the perfect gear to
+            suit your needs.
+          </p>
+
+          <div className="text-center mb-6">
+            <label htmlFor="sort" className="mr-4 font-semibold">
+              Sort By:
+            </label>
+            <select
+              id="sort"
+              className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600"
+              onChange={handleSortChange}
+            >
+              <option value="">Default</option>
+              <option value="asc">Price (Low &gt; High)</option>
+              <option value="desc">Price (High&gt; Low )</option>
+            </select>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
             {equipments.length > 0 ? (
               equipments.map((equipment) => (
