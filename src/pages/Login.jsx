@@ -33,68 +33,69 @@ export default function Login() {
 
   return (
     <motion.div
-      initial={{ y: "-100vh", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1.2, ease: "easeInOut" }}
-      className="flex items-center justify-center min-h-screen bg-teal-50 dark:bg-teal-900"
-    >
-      <Helmet>
-        <title>Login | PlayGear</title>
-      </Helmet>
-      <div className="flex flex-col lg:flex-row shadow-lg rounded-lg bg-white max-w-4xl w-full">
-        {/* Left Section */}
-        <div className="p-8 lg:w-1/2 flex flex-col justify-center items-center">
-          <h2 className="text-3xl font-bold mb-4 text-teal-700 dark:text-teal-200">
-            Sign In
-          </h2>
-          <GoogleLogin />
-          <form onSubmit={handleLogin} className="w-full">
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              className="block w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:bg-teal-800 dark:border-teal-600 dark:text-teal-300"
-              required
-            />
-            <div className="relative w-full mb-4">
-              <input
-                name="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:bg-teal-800 dark:border-teal-600 dark:text-teal-300"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-y-0 right-3 flex items-center text-teal-500 dark:text-teal-300"
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </button>
-            </div>
-            <button
-              type="submit"
-              className="bg-gradient-to-r from-teal-500 to-blue-500 text-white hover:scale-105 px-6 py-2 rounded-xl font-medium transition"
-            >
-              Sign In
-            </button>
-          </form>
-        </div>
-
-        {/* Right Section */}
-        <div className="bg-gradient-to-r from-teal-500 to-blue-500 text-white p-8 lg:w-1/2 flex flex-col justify-center items-center rounded-r-lg md:rounded-tl-[100px] md:rounded-bl-[100px]">
-          <Lottie className="w-full h-36" animationData={loginLottie} />
-          <p className="my-2 text-sm text-center">
-            Register with your personal details to enjoy all features.
-          </p>
-          <Link
-            to="/register"
-            className="bg-white text-teal-500 hover:scale-105 px-6 py-2 rounded-xl font-medium transition"
+  initial={{ y: "-100vh", opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ duration: 1.2, ease: "easeInOut" }}
+  className="flex items-center justify-center min-h-screen bg-teal-50 dark:bg-gray-800"
+>
+  <Helmet>
+    <title>Login | PlayGear</title>
+  </Helmet>
+  <div className="flex flex-col lg:flex-row shadow-lg rounded-lg bg-white dark:bg-gray-700 max-w-4xl w-full">
+    {/* Left Section */}
+    <div className="p-8 lg:w-1/2 flex flex-col justify-center items-center">
+      <h2 className="text-3xl font-bold mb-4 text-teal-700 dark:text-teal-300">
+        Sign In
+      </h2>
+      <GoogleLogin />
+      <form onSubmit={handleLogin} className="w-full">
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          className="block w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+          required
+        />
+        <div className="relative w-full mb-4">
+          <input
+            name="password"
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute inset-y-0 right-3 flex items-center text-teal-500 dark:text-teal-300"
           >
-            Sign Up
-          </Link>
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </button>
         </div>
-      </div>
-    </motion.div>
+        <button
+          type="submit"
+          className="bg-gradient-to-r from-teal-500 to-blue-500 text-white hover:scale-105 px-6 py-2 rounded-xl font-medium transition"
+        >
+          Sign In
+        </button>
+      </form>
+    </div>
+
+    {/* Right Section */}
+    <div className="bg-gradient-to-r from-teal-500 to-blue-500 text-white p-8 lg:w-1/2 flex flex-col justify-center items-center rounded-r-lg md:rounded-tl-[100px] md:rounded-bl-[100px]">
+      <Lottie className="w-full h-36" animationData={loginLottie} />
+      <p className="my-2 text-sm text-center">
+        Register with your personal details to enjoy all features.
+      </p>
+      <Link
+        to="/register"
+        className="bg-white text-teal-500 hover:bg-gray-100 px-6 py-2 rounded-xl font-medium transition"
+      >
+        Sign Up
+      </Link>
+    </div>
+  </div>
+</motion.div>
+
   );
 }
