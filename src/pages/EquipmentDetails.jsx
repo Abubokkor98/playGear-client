@@ -28,10 +28,10 @@ export default function EquipmentDetails() {
       <Helmet>
         <title>{itemName} | PlayGear</title>
       </Helmet>
-      <h2 className="text-3xl font-semibold text-center mb-6">
+      {/* <h2 className="text-3xl font-semibold text-center mb-6">
         Equipment Details
-      </h2>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row relative dark:bg-gray-800 dark:border dark:border-gray-700">
+      </h2> */}
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row relative dark:bg-gray-800 dark:border dark:border-gray-700 my-12">
         {/* Back button */}
         <button
           onClick={handleBack}

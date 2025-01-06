@@ -29,11 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/details/:_id",
-        element: (
-          <PrivateRoute>
-            <EquipmentDetails></EquipmentDetails>
-          </PrivateRoute>
-        ),
+        element: <EquipmentDetails></EquipmentDetails>,
         loader: async ({ params }) => {
           const res = await fetch(
             "https://assignment-10-server-ab.vercel.app/equipments"
