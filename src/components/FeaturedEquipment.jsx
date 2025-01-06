@@ -3,6 +3,7 @@ import FeaturedEquipCard from "../utilities/FeaturedEquipCard";
 import Loading from "./Loading";
 
 import CartLottie from "../utilities/CartLottie";
+import { Zoom } from "react-awesome-reveal";
 
 export default function FeaturedEquipment() {
   const [products, setProducts] = useState([]);
@@ -37,9 +38,11 @@ export default function FeaturedEquipment() {
         <Loading />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 ">
-          {products.map((product) => (
-            <FeaturedEquipCard key={product._id} product={product} />
-          ))}
+          <Zoom cascade damping={0.1}>
+            {products.map((product) => (
+              <FeaturedEquipCard key={product._id} product={product} />
+            ))}
+          </Zoom>
         </div>
       )}
     </section>
