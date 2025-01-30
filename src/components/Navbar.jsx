@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-gray-800 dark:bg-gray-900 text-white shadow-md transition-colors duration-300">
-      <div className="px-4 py-3 flex justify-between items-center">
+      <div className="px-4 lg:px-10 py-3 flex justify-between items-center">
         {/* Website Logo/Name */}
         <Link to="/" className="text-2xl font-bold">
           PlayGear

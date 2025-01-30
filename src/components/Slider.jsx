@@ -15,7 +15,7 @@ import slider3 from "../assets/slider3.jpg";
 
 export default function Slider() {
   return (
-    <div className="">
+    <div className="pt-6 px-4 lg:px-10">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
