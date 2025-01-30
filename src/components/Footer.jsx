@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-6 dark:bg-gray-900 dark:text-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-10">
         <div className="flex flex-wrap justify-between items-center mb-6">
           <div className="">
             <h2 className="text-2xl font-bold mb-1">PlayGear</h2>

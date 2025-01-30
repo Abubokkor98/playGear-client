@@ -39,17 +39,19 @@ export default function BrandsWeWorkWith() {
     {
       id: 6,
       name: "Under Armour",
-      icon: <SiUnderarmour className="text-5xl text-gray-800 dark:text-white" />,
+      icon: (
+        <SiUnderarmour className="text-5xl text-gray-800 dark:text-white" />
+      ),
     },
   ];
 
   return (
-    <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 py-16 px-6 text-center relative overflow-hidden">
+    <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 py-16 text-center relative overflow-hidden px-4 lg:px-10">
       <div className="absolute top-0 left-0 w-32 h-32 bg-blue-400 opacity-30 rounded-full blur-3xl transform -translate-x-16 -translate-y-16"></div>
       <div className="absolute bottom-0 right-0 w-48 h-48 bg-pink-400 opacity-20 rounded-full blur-3xl transform translate-x-16 translate-y-16"></div>
 
       <Fade cascade>
-        <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
           Brands We Work With
         </h2>
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10">
