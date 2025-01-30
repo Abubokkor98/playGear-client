@@ -42,8 +42,8 @@ export default function SportsCategories() {
   };
 
   return (
-    <div className="text-center py-12 bg-gray-100 dark:bg-gray-800 mb-10 px-4">
-      <h2 className="text-4xl font-bold mb-4 dark:text-white ">
+    <div className="text-center py-12 bg-gray-100 dark:bg-gray-800 mb-10 px-4 lg:px-10">
+      <h2 className="text-2xl md:text-4xl font-bold mb-4 dark:text-white ">
         Explore Our Sports Equipment Categories
       </h2>
       <p className="text-lg mb-10 dark:text-gray-300">
@@ -65,14 +65,14 @@ export default function SportsCategories() {
       {/* selected category's equipment */}
       {selectedCategory && (
         <div className="py-12">
-          <h2 className="text-4xl font-bold text-center mb-8 dark:text-white">
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 dark:text-white">
             {selectedCategory} Equipment
           </h2>
 
           {loading ? (
             <Loading></Loading>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
               {equipments.length > 0 ? (
                 equipments.map((equipment) => (
                   <EquipmentCard
