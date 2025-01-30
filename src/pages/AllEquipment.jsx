@@ -34,7 +34,7 @@ export default function AllEquipment() {
   };
 
   return (
-    <div className="py-10 dark:text-white bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <div className="py-10 dark:text-white bg-gray-50 dark:bg-gray-800 transition-colors duration-300 px-4 md:px-10">
       <Helmet>
         <title>AllEquipment | PlayGear</title>
       </Helmet>
@@ -43,7 +43,7 @@ export default function AllEquipment() {
         <Loading />
       ) : (
         <>
-          <h2 className="text-4xl font-bold text-center mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-4">
             Explore Our Sports Equipment!
           </h2>
           <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
@@ -67,7 +67,7 @@ export default function AllEquipment() {
             </select>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {equipments.length > 0 ? (
               equipments.map((equipment) => (
                 <EquipmentCard

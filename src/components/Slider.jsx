@@ -40,14 +40,13 @@ export default function Slider() {
             <div className="hero-overlay bg-opacity-60 dark:bg-opacity-70"></div>
             <div className="hero-content text-neutral-content text-center ">
               <div className="max-w-md">
-                <h1 className="mb-5 text-4xl md:text-5xl font-bold dark:text-white">
+                <h1 className="mb-5 text-2xl md:text-4xl font-bold dark:text-white">
                   Experience the Thrill of Football
                 </h1>
                 <p className="mb-5 dark:text-gray-300">
-                  Step onto the field where dreams come alive! Football ignites
-                  passion, strengthens bonds, and tests your skill with every
-                  pass, tackle, and goal. Whether you're playing or cheering,
-                  the game connects hearts across the globe.
+                  Step onto the field where dreams ignite! Football fuels
+                  passion, builds bonds, and tests skill with every play.
+                  Whether playing or cheering, the game unites hearts worldwide.
                 </p>
               </div>
             </div>
@@ -63,14 +62,13 @@ export default function Slider() {
             <div className="hero-overlay bg-opacity-60 dark:bg-opacity-70"></div>
             <div className="hero-content text-neutral-content text-center">
               <div className="max-w-md">
-                <h1 className="mb-5 text-4xl md:text-5xl font-bold dark:text-white">
+                <h1 className="mb-5 text-2xl md:text-4xl font-bold dark:text-white">
                   Embrace the Elegance of Tennis
                 </h1>
                 <p className="mb-5 dark:text-gray-300">
-                  From the sound of the racket striking the ball to the thrill
-                  of match points, tennis is a blend of agility, strategy, and
-                  precision. Step into the court and let the game inspire your
-                  competitive spirit.
+                  From the racket's strike to match-point thrills, tennis blends
+                  agility, strategy, and precision. Step onto the court and
+                  embrace the competition!
                 </p>
               </div>
             </div>
@@ -86,14 +84,13 @@ export default function Slider() {
             <div className="hero-overlay bg-opacity-60 dark:bg-opacity-70"></div>
             <div className="hero-content text-neutral-content text-center">
               <div className="max-w-md">
-                <h1 className="mb-5 text-4xl md:text-5xl font-bold dark:text-white">
+                <h1 className="mb-5 text-2xl md:text-4xl font-bold dark:text-white">
                   Feel the Spirit of Cricket
                 </h1>
                 <p className="mb-5 dark:text-gray-300">
-                  The gentleman's game, cricket, is more than just a sport—it's
-                  a tradition. With every boundary, every wicket, and every run,
-                  experience the camaraderie, strategy, and grace that make
-                  cricket timeless.
+                  Cricket is more than a sport—it's a tradition. Every boundary,
+                  wicket, and run embodies camaraderie, strategy, and timeless
+                  grace.
                 </p>
               </div>
             </div>
