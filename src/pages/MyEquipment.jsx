@@ -68,7 +68,7 @@ export default function MyEquipment() {
         <Loading></Loading>
       ) : (
         <>
-          <h2 className="text-4xl font-bold text-center mb-10">
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">
           Manage Your {myEquipment.length} Equipment Items Below!
           </h2>
           {myEquipment.length > 0 ? (

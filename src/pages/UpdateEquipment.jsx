@@ -87,7 +87,7 @@ export default function UpdateEquipment() {
       <Helmet>
         <title>Update Equipment | PlayGear</title>
       </Helmet>
-      <h1 className="text-4xl font-bold text-center mb-6">{`Update ${itemName}`}</h1>
+      <h1 className="text-2xl md:text-4xl font-bold text-center mb-6">{`Update ${itemName}`}</h1>
       <form onSubmit={handleUpdate} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

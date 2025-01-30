@@ -75,7 +75,7 @@ export default function AddEquipment() {
       <Helmet>
         <title>AddEquipment | PlayGear</title>
       </Helmet>
-      <h1 className="text-4xl font-bold text-center mb-6">Add New Equipment</h1>
+      <h1 className="text-2xl md:text-4xl font-bold text-center mb-6">Add New Equipment</h1>
       <form onSubmit={handleAddEquipment} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
