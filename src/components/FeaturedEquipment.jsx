@@ -19,12 +19,12 @@ export default function FeaturedEquipment() {
   }, []);
 
   return (
-    <section className="pb-12 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <section className="pb-12 px-4 lg:px-10 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       <div className="">
         <CartLottie></CartLottie>
       </div>
 
-      <h2 className="text-4xl text-center font-bold text-gray-800 dark:text-white transition-colors duration-300 mb-4">
+      <h2 className="text-2xl md:text-4xl text-center font-bold text-gray-800 dark:text-white transition-colors duration-300 mb-4">
         Discover Our Top Picks
       </h2>
       <p className="text-lg text-gray-600 text-center dark:text-gray-300 lg:w-6/12 mx-auto mb-10">
@@ -36,7 +36,7 @@ export default function FeaturedEquipment() {
       {loading ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <Zoom cascade damping={0.1}>
             {equipments.map((equipment) => (
               <EquipmentCard
