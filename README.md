@@ -79,6 +79,73 @@ Our mission? To **empower athletes** with the best tools, delivered in style. �
 
 ---
 
+## 📦 Dependencies
+PlayGear relies on the following libraries:
+
+| Dependency                    | Version   | Description |
+|--------------------------------|-----------|-------------|
+| **@emotion/react**            | `^11.13.5` | Library for writing CSS-in-JS styles |
+| **firebase**                  | `^11.0.2`  | Google Firebase SDK for authentication and database |
+| **framer-motion**             | `^11.15.0` | Library for animations and transitions |
+| **lottie-react**              | `^2.4.0`   | Library for rendering Lottie animations in React |
+| **react**                     | `^18.3.1`  | Core React framework for UI development |
+| **react-awesome-reveal**      | `^4.3.1`   | Animation effects for React components |
+| **react-dom**                 | `^18.3.1`  | React rendering package for DOM elements |
+| **react-helmet-async**        | `^2.0.5`   | Manages document head for better SEO and performance |
+| **react-hot-toast**           | `^2.4.1`   | Library for toast notifications |
+| **react-icons**               | `^5.4.0`   | Collection of scalable vector icons for React |
+| **react-router-dom**          | `^6.28.0`  | React library for handling routing/navigation |
+| **react-spring**              | `^9.7.5`   | Library for physics-based animations in React |
+| **sweetalert2**               | `^11.14.5` | Beautiful alert popups with customizable styles |
+| **swiper**                    | `^11.1.15` | Mobile-friendly slider and carousel component |
+
+
+**Install Dependencies**
+To install dependencies manually, use:
+   ```bash
+   npm install
+   ```
+
+---
+
+## Installation and Setup 🚀
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/Abubokkor98/career-compass.git
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd career-compass
+    ```
+3.  Install dependencies:
+    ```bash
+    npm install
+    ```
+4.  Set up Firebase:
+
+    - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+    - Enable Authentication and configure the desired sign-in methods.
+    - Copy the Firebase configuration and create a `.env` file in the root directory.
+    - Add the following variables:
+      ```plaintext
+      REACT_APP_FIREBASE_API_KEY=your-firebase-api-key
+      REACT_APP_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+      REACT_APP_FIREBASE_PROJECT_ID=your-firebase-project-id
+      REACT_APP_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+      REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+      REACT_APP_FIREBASE_APP_ID=your-firebase-app-id
+
+``` 
+5. Start the development server:
+
+npm start
+```
+
+6. Access the application at `http://localhost:5173`.
+
+---
+
 ### **👥 Contribution and Support**
 
 We love contributions! Feel free to fork the project, report any bugs, or suggest features.
