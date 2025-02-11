@@ -18,21 +18,11 @@ export default function Home() {
       </header>
 
       <main>
-        <section>
-          <FeaturedEquipment></FeaturedEquipment>
-        </section>
-        <section>
-          <SportsCategories></SportsCategories>
-        </section>
-        <section>
-          <LottiAnimation></LottiAnimation>
-        </section>
-        <section>
-          <WhyChooseUs></WhyChooseUs>
-        </section>
-        <section>
-          <BrandsWeWorkWith></BrandsWeWorkWith>
-        </section>
+        <FeaturedEquipment />
+        <SportsCategories />
+        <LottiAnimation />
+        <WhyChooseUs />
+        <BrandsWeWorkWith />
       </main>
     </div>
   );
