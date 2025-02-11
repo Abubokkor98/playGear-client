@@ -10,7 +10,6 @@ import AllEquipment from "../pages/AllEquipment";
 import MyEquipment from "../pages/MyEquipment";
 import EquipmentDetails from "../pages/EquipmentDetails";
 import UpdateEquipment from "../pages/UpdateEquipment";
-import SportsCategories from "../components/SportsCategories";
 import CategoryPage from "../pages/CategoryPage";
 
 export const router = createBrowserRouter([
