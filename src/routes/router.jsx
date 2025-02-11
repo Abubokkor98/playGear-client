@@ -11,6 +11,7 @@ import MyEquipment from "../pages/MyEquipment";
 import EquipmentDetails from "../pages/EquipmentDetails";
 import UpdateEquipment from "../pages/UpdateEquipment";
 import SportsCategories from "../components/SportsCategories";
+import CategoryPage from "../pages/CategoryPage";
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/categories",
-        element: <SportsCategories></SportsCategories>,
+        element: <CategoryPage/>
       },
       {
         path: "/details/:_id",
