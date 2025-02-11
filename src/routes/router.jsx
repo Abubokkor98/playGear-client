@@ -15,24 +15,24 @@ import CategoryPage from "../pages/CategoryPage";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage></ErrorPage>,
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,
       },
       {
         path: "/all-equipment",
-        element: <AllEquipment></AllEquipment>,
+        element: <AllEquipment />,
       },
       {
         path: "/categories",
-        element: <CategoryPage/>
+        element: <CategoryPage />,
       },
       {
         path: "/details/:_id",
-        element: <EquipmentDetails></EquipmentDetails>,
+        element: <EquipmentDetails />,
         loader: async ({ params }) => {
           const res = await fetch(
             "https://assignment-10-server-ab.vercel.app/equipments"
@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
         path: "/add-equipment",
         element: (
           <PrivateRoute>
-            <AddEquipment></AddEquipment>
+            <AddEquipment />
           </PrivateRoute>
         ),
       },
@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
         path: "/my-equipment",
         element: (
           <PrivateRoute>
-            <MyEquipment></MyEquipment>
+            <MyEquipment />
           </PrivateRoute>
         ),
       },
@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
         path: "/update-equipment/:id",
         element: (
           <PrivateRoute>
-            <UpdateEquipment></UpdateEquipment>
+            <UpdateEquipment />
           </PrivateRoute>
         ),
         loader: ({ params }) =>
@@ -72,11 +72,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register></Register>,
+        element: <Register />,
       },
     ],
   },
