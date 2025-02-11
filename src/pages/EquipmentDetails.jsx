@@ -53,7 +53,7 @@ export default function EquipmentDetails() {
             </p>
 
             {/* Grid for details */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-2 gap-4 mb-6">
               <div>
                 <p className="text-sm font-semibold text-gray-500">Category</p>
                 <p className="text-lg text-gray-900 dark:text-gray-100">
@@ -62,9 +62,7 @@ export default function EquipmentDetails() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-500">Price</p>
-                <p className="text-lg font-semibold text-green-500">
-                  ${price}
-                </p>
+                <p className="text-lg font-semibold text-green-500">${price}</p>
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-500">Rating</p>
@@ -84,7 +82,7 @@ export default function EquipmentDetails() {
                 <p className="text-sm font-semibold text-gray-500">
                   Customization
                 </p>
-                <p className="text-lg text-gray-900 dark:text-gray-100">
+                <p className="text-sm md:text-lg text-gray-900 dark:text-gray-100">
                   {customization}
                 </p>
               </div>
