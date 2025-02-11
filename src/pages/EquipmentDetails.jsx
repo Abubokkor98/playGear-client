@@ -24,78 +24,87 @@ export default function EquipmentDetails() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8 dark:text-white">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <Helmet>
         <title>{itemName} | PlayGear</title>
       </Helmet>
-      {/* <h2 className="text-3xl font-semibold text-center mb-6">
-        Equipment Details
-      </h2> */}
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col lg:flex-row relative dark:bg-gray-800 dark:border dark:border-gray-700 my-12">
+      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-2xl overflow-hidden relative">
         {/* Back button */}
         <button
           onClick={handleBack}
-          className="text-2xl bg-red-500 rounded-full text-white absolute top-4 left-4 p-2"
+          className="absolute top-4 right-4 p-2 bg-red-500 rounded-full text-white hover:bg-red-600 transition-colors"
         >
-          <IoCloseSharp />
+          <IoCloseSharp className="w-6 h-6" />
         </button>
-        <img
-          src={image}
-          alt={itemName}
-          className="lg:max-w-sm lg:max-h-full object-cover w-full h-64 sm:h-80 lg:h-auto"
-        />
-        <div className="p-6">
-          <h3 className="text-2xl font-bold mb-2">{itemName}</h3>
-          <p className="text-gray-600 mb-4 dark:text-gray-300">{description}</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <p className="text-sm font-semibold text-gray-500">Category</p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                {category}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-500">Price</p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                ${price}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-500">Rating</p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                {rating}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-500">
-                Stock Status
-              </p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                {stockStatus} Available
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-500">
-                Customization
-              </p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                {customization}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-500">
-                Processing Time
-              </p>
-              <p className="text-base text-gray-700 dark:text-gray-300">
-                {processingTime}
-              </p>
-            </div>
-          </div>
-          <div className="mt-6">
-            <p className="text-sm font-semibold text-gray-500">Posted By</p>
-            <p className="text-base text-gray-700 dark:text-gray-300">
-              {email}
+
+        {/* Image and Details */}
+        <div className="flex flex-col lg:flex-row">
+          <img
+            src={image}
+            alt={itemName}
+            className="w-full lg:w-1/2 h-96 object-cover lg:rounded-l-xl"
+          />
+          <div className="p-8 lg:w-1/2">
+            <h3 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+              {itemName}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              {description}
             </p>
+
+            {/* Grid for details */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div>
+                <p className="text-sm font-semibold text-gray-500">Category</p>
+                <p className="text-lg text-gray-900 dark:text-gray-100">
+                  {category}
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-500">Price</p>
+                <p className="text-lg font-semibold text-green-500">
+                  ${price}
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-500">Rating</p>
+                <p className="text-lg text-gray-900 dark:text-gray-100">
+                  {rating}
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-500">
+                  Stock Status
+                </p>
+                <p className="text-lg font-semibold text-green-500">
+                  {stockStatus} Available
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-500">
+                  Customization
+                </p>
+                <p className="text-lg text-gray-900 dark:text-gray-100">
+                  {customization}
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-500">
+                  Processing Time
+                </p>
+                <p className="text-lg text-gray-900 dark:text-gray-100">
+                  {processingTime}
+                </p>
+              </div>
+            </div>
+
+            {/* Posted By */}
+            <div className="mt-6">
+              <p className="text-sm font-semibold text-gray-500">Posted By</p>
+              <p className="text-lg text-blue-500 hover:text-blue-600 transition-colors">
+                {email}
+              </p>
+            </div>
           </div>
         </div>
       </div>
