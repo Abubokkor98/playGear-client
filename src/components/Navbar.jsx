@@ -185,6 +185,16 @@ export default function Navbar() {
           >
             All Sports Equipment
           </NavLink>
+          <NavLink
+            to="/categories"
+            className={({ isActive }) =>
+              isActive ? "text-blue-400" : "hover:text-blue-300"
+            }
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Explore Categories
+          </NavLink>
+
           {user && (
             <>
               <NavLink

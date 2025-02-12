@@ -42,7 +42,7 @@ export default function CategoryPage() {
   };
 
   return (
-    <div className="text-center py-12 bg-gray-100 dark:bg-gray-800 px-4 lg:px-10 min-h-screen">
+    <div className="text-center py-12 bg-gray-100 dark:bg-gray-800 px-4 lg:px-10 min-h-[calc(100vh-70px)]">
       <h2 className="text-2xl md:text-4xl font-bold mb-4 dark:text-white ">
         Explore Our Sports Equipment Categories
       </h2>

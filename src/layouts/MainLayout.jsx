@@ -5,12 +5,12 @@ import Footer from "../components/Footer";
 
 export default function MainLayout() {
   return (
-    <div >
-      <Navbar></Navbar>
-
-      <Outlet></Outlet>
-
-      <Footer></Footer>
+    <div>
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }
