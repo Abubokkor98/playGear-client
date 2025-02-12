@@ -72,7 +72,8 @@ export default function MyEquipment() {
           Manage Your {myEquipment.length} Equipment Items Below!
           </h2>
           {myEquipment.length > 0 ? (
-            <table className="table-auto w-full bg-white text-sm text-left border-collapse dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+           <div className="overflow-x-auto">
+             <table className=" table-auto min-w-full bg-white text-sm text-left border-collapse dark:bg-gray-800 dark:border-gray-700 dark:text-white">
               <thead className="bg-gray-100 dark:bg-gray-700">
                 <tr>
                   <th className="px-4 py-2 border">Image</th>
@@ -122,6 +123,7 @@ export default function MyEquipment() {
                 ))}
               </tbody>
             </table>
+           </div>
           ) : (
             <div className="text-center">
               <h2 className="text-red-400 text-3xl font-bold">
